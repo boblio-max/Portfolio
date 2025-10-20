@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Developer Portfolio | [Nikhil Mahankali]</title>
+    <!-- Load Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind to use Inter font and define custom transitions -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary-dark': '#10172A',
+                        'card-bg': '#1F2937',
+                        'accent': '#6366F1', // Indigo-500
+                    },
+                    // Define a custom transition duration for smooth animations
+                    transitionDuration: {
+                        '400': '400ms',
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom styles for professional scroll effects and background */
+        body {
+            background-color: #10172A; /* primary-dark */
+            color: #E5E7EB; /* gray-200 */
+            min-height: 100vh;
+        }
+
+        /* Hero text effect: subtle shadow and gradient */
+        .hero-title {
+            background: linear-gradient(90deg, #FFFFFF, #9CA3AF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 4px 10px rgba(99, 102, 241, 0.4); /* Accent shadow */
+        }
+
+        /* Project Card Hover Effect */
+        .project-card {
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease-in-out;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px -5px rgba(99, 102, 241, 0.2), 0 8px 15px -8px rgba(99, 102, 241, 0.4);
+        }
+
+        /* GitHub Button Hover Effect */
+        .github-button {
+            transition: background-color 0.3s, transform 0.1s;
+        }
+
+        .github-button:hover {
+            background-color: #4F46E5;
+            transform: scale(1.02);
+        }
+
+        /* Icon for GitHub */
+        .github-icon {
+            width: 1.25rem;
+            height: 1.25rem;
+            fill: currentColor;
+            margin-right: 0.5rem;
+        }
+
+    </style>
+    <!-- Load Lucide Icons for professional icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="font-sans antialiased">
+
+    <!-- Header / Navigation -->
+    <header class="sticky top-0 z-50 bg-primary-dark/95 backdrop-blur-sm shadow-lg border-b border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold text-accent hover:text-white transition duration-300">
+                Nikhil Mahankali
+            </a>
+            <nav class="space-x-4">
+                <a href="#home" class="text-gray-300 hover:text-accent transition duration-300">Home</a>
+                <a href="#projects" class="text-gray-300 hover:text-accent transition duration-300">Projects</a>
+                <a href="#contact" class="text-gray-300 hover:text-accent transition duration-300">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- 1. Hero Section -->
+        <section id="home" class="py-24 md:py-36 text-center">
+            <p class="text-lg text-accent mb-4 animate-fade-in-down">HELLO, I'M A</p>
+            <h1 class="hero-title text-5xl sm:text-7xl lg:text-8xl font-extrabold mb-6 tracking-tight">
+                Software Developer
+            </h1>
+            <p class="text-xl sm:text-2xl text-gray-400 max-w-3xl mx-auto mb-10">
+                Building scalable web applications and intuitive digital experiences. Focused on clean code and performance.
+            </p>
+            <a href="#projects" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-xl text-white bg-accent hover:bg-indigo-700 transition duration-300 shadow-xl hover:shadow-indigo-500/50">
+                View My Work
+                <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+            </a>
+        </section>
+
+        <!-- Horizontal Rule Separator -->
+        <hr class="border-gray-700 mb-20">
+
+        <!-- 2. Projects Section -->
+        <section id="projects" class="py-16">
+            <h2 class="text-4xl font-bold text-center mb-4 text-white">Featured Projects</h2>
+            <p class="text-center text-gray-400 mb-16 max-w-2xl mx-auto">
+                A selection of personal and professional work demonstrating my skills in full-stack development. Click on any card to see the project details on GitHub.
+            </p>
+
+            <!-- Project Grid: Easily Add New Projects Here -->
+            <div id="project-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+                <!-- PROJECT CARD TEMPLATE START -->
+                <div class="project-card bg-card-bg rounded-2xl p-6 shadow-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center mb-4 text-accent">
+                            <i data-lucide="rocket" class="w-6 h-6 mr-3"></i>
+                            <h3 class="text-2xl font-semibold">Hone, by Origin</h3>
+                        </div>
+                        <p class="text-gray-300 mb-6 flex-grow">
+                            A self-coding AI system built with Origin and Python. Features autonomous code generation, continuous self-improvement, and integration with quantum simulation via Qyphos.
+                        </p>
+                    </div>
+                    <a href="https://github.com/NickelodeonOcom/Hone" target="_blank" class="github-button inline-flex items-center justify-center mt-4 px-4 py-2 border border-transparent text-sm font-medium rounded-xl text-white bg-accent shadow-md">
+                        <svg class="github-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.802 8.207 11.387.6.111.793-.261.793-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.542-1.375-1.323-1.744-1.323-1.744-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.419-1.304.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.31.468-2.381 1.236-3.221-.124-.305-.536-1.524.118-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.003.404 2.292-1.552 3.3-1.23 3.3-1.23.655 1.652.243 2.871.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.923.43.372.823 1.102.823 2.222 0 1.604-.015 2.899-.015 3.295 0 .319.192.694.8.576 4.765-1.589 8.2-6.088 8.2-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                        GitHub Repository
+                    </a>
+                </div>
+                <!-- PROJECT CARD TEMPLATE END -->
+
+                <!-- PROJECT CARD 2 -->
+                <div class="project-card bg-card-bg rounded-2xl p-6 shadow-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center mb-4 text-accent">
+                            <i data-lucide="layout-grid" class="w-6 h-6 mr-3"></i>
+                            <h3 class="text-2xl font-semibold">Qyphos Simulation</h3>
+                        </div>
+                        <p class="text-gray-300 mb-6 flex-grow">
+                            A quantum computing simulator built for classical hardware. Features real-time qubit visualization, gate-level emulation, and seamless integration with AI systems like Hone.
+                        </p>
+                    </div>
+                    <a href="https://github.com/boblio-max/Qyphos_structure" target="_blank" class="github-button inline-flex items-center justify-center mt-4 px-4 py-2 border border-transparent text-sm font-medium rounded-xl text-white bg-accent shadow-md">
+                        <svg class="github-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.802 8.207 11.387.6.111.793-.261.793-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.542-1.375-1.323-1.744-1.323-1.744-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.419-1.304.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.31.468-2.381 1.236-3.221-.124-.305-.536-1.524.118-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.003.404 2.292-1.552 3.3-1.23 3.3-1.23.655 1.652.243 2.871.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.923.43.372.823 1.102.823 2.222 0 1.604-.015 2.899-.015 3.295 0 .319.192.694.8.576 4.765-1.589 8.2-6.088 8.2-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                        GitHub Repository
+                    </a>
+                    <a href="https://qyphos.onrender.com/" target="_blank" class="github-button inline-flex items-center justify-center mt-4 px-4 py-2 border border-transparent text-sm font-medium rounded-xl text-white bg-accent shadow-md">
+                        <svg class="github-icon" viewBox="30 30 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.802 8.207 11.387.6.111.793-.261.793-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.542-1.375-1.323-1.744-1.323-1.744-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.419-1.304.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.31.468-2.381 1.236-3.221-.124-.305-.536-1.524.118-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.003.404 2.292-1.552 3.3-1.23 3.3-1.23.655 1.652.243 2.871.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.923.43.372.823 1.102.823 2.222 0 1.604-.015 2.899-.015 3.295 0 .319.192.694.8.576 4.765-1.589 8.2-6.088 8.2-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                         Website
+                    </a>
+                </div>
+
+                <!-- PROJECT CARD 3 -->
+                <div class="project-card bg-card-bg rounded-2xl p-6 shadow-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center mb-4 text-accent">
+                            <i data-lucide="bot" class="w-6 h-6 mr-3"></i>
+                            <h3 class="text-2xl font-semibold">Face Morph</h3>
+                        </div>
+                        <p class="text-gray-300 mb-6 flex-grow">
+                            A real-time face swapping system powered by deep learning. Features precise facial landmark detection, seamless blending, and high-fidelity identity transfer across videos or images..
+                        </p>
+                    </div>
+                    <a href="https://github.com/boblio-max/Faceswap" target="_blank" class="github-button inline-flex items-center justify-center mt-4 px-4 py-2 border border-transparent text-sm font-medium rounded-xl text-white bg-accent shadow-md">
+                        <svg class="github-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.802 8.207 11.387.6.111.793-.261.793-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.542-1.375-1.323-1.744-1.323-1.744-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.419-1.304.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.31.468-2.381 1.236-3.221-.124-.305-.536-1.524.118-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.046.138 3.003.404 2.292-1.552 3.3-1.23 3.3-1.23.655 1.652.243 2.871.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.923.43.372.823 1.102.823 2.222 0 1.604-.015 2.899-.015 3.295 0 .319.192.694.8.576 4.765-1.589 8.2-6.088 8.2-11.386 0-6.627-5.373-12-12-12z"></path></svg>
+                        GitHub Repository
+                    </a>
+                </div>
+            </div>
+            <!-- End Project Grid -->
+
+            <div class="text-center mt-16">
+                 <a href="https://github.com/yourusername" target="_blank" class="inline-flex items-center text-accent hover:text-white transition duration-300 group">
+                    <span class="text-lg border-b border-accent group-hover:border-white pb-0.5">See All Projects on GitHub</span>
+                    <i data-lucide="arrow-right" class="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1"></i>
+                 </a>
+            </div>
+
+        </section>
+
+        <!-- Horizontal Rule Separator -->
+        <hr class="border-gray-700 my-20">
+
+        <!-- 3. Contact Section -->
+        <section id="contact" class="py-16 text-center">
+            <h2 class="text-4xl font-bold text-white mb-4">Let's Connect</h2>
+            <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-10">
+                I am currently open to new opportunities and exciting collaborative projects. Send me a message!
+            </p>
+
+            <div class="space-y-4">
+                <p class="text-lg text-gray-300">
+                    <i data-lucide="mail" class="inline-block w-5 h-5 mr-2 text-accent"></i>
+                    Email: <a href="mailto:nikhilmahankali56@gmail.com" class="text-accent hover:text-white transition duration-300 border-b border-transparent hover:border-accent">nikhilmahankali56@gmail.com</a>
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800/20 mt-20 py-8 border-t border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-500">
+            <p>&copy; <span id="current-year"></span> Nikhil Mahankali. All rights reserved. | Built with HTML & Tailwind CSS.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Dynamic Content and Icon Rendering -->
+    <script>
+        // Set current year in the footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Optional: Smooth Scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add an optional scroll-reveal effect for sections (Pure JS/CSS)
+        const sections = document.querySelectorAll('section');
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            // Apply initial hidden/offset state for animation
+            section.classList.add('transition-all', 'duration-700', 'ease-out', 'opacity-0', 'translate-y-10');
+            observer.observe(section);
+        });
+
+        // Ensure the Project Cards also get the animation class to fade in later
+        document.querySelectorAll('.project-card').forEach(card => {
+             card.classList.add('transition-all', 'duration-700', 'ease-out', 'opacity-0', 'translate-y-10');
+             observer.observe(card);
+        });
+    </script>
+
+</body>
+</html>
