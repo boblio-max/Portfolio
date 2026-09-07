@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Nikhil Mahankali — Engineering Portfolio</title>
-<link rel="stylesheet" href="/style.css" />
+<title>Nikhil Mahankali — Science Portfolio</title>
+<link rel="stylesheet" href="./style.css" />
 </head>
 <body>
 <header class="nav">
@@ -16,6 +16,34 @@
   </nav>
   <span class="spacer"></span>
   <span id="syncState" class="sync" title="Data source status">loading…</span>
+  <div class="toggle-wrapper" id="themeToggle" role="switch" aria-checked="false" aria-label="Toggle dark mode" tabindex="0">
+    <!-- Sun icon -->
+    <div class="sun-icon">
+      <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="10" cy="10" r="6" />
+        <rect x="9" y="0" width="2" height="3" rx="1" />
+        <rect x="9" y="17" width="2" height="3" rx="1" />
+        <rect x="0" y="9" width="3" height="2" rx="1" />
+        <rect x="17" y="9" width="3" height="2" rx="1" />
+        <rect x="15.5" y="1.5" width="2" height="2" rx="1" />
+        <rect x="2.5" y="1.5" width="2" height="2" rx="1" />
+        <rect x="15.5" y="16.5" width="2" height="2" rx="1" />
+        <rect x="2.5" y="16.5" width="2" height="2" rx="1" />
+      </svg>
+    </div>
+
+    <!-- Toggle track -->
+    <div class="toggle-track">
+      <div class="toggle-knob"></div>
+    </div>
+
+    <!-- Moon icon -->
+    <div class="moon-icon">
+      <svg viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 1a8 8 0 1 0 7.5 5.2A6 6 0 0 1 9 1Z" />
+      </svg>
+    </div>
+  </div>
   <a class="gh" href="https://github.com/boblio-max">GitHub</a>
 </header>
 
@@ -30,6 +58,6 @@
   <span>Data: live GitHub API via local server · no mock data</span>
 </footer>
 
-<script type="module" src="/script.js"></script>
+<script type="module" src="./script.js"></script>
 </body>
 </html>

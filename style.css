@@ -74,5 +74,102 @@ h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; color: 
 .commit { padding: 4px 0; font-size: 13.5px; }
 .commit .meta { color: var(--muted); font-size: 12px; }
 
-.err { border: 1px solid #ff8182; background: #ffebe9; border-radius: 6px; padding: 12px; }
+.err { border: 1px solid #6effcc; background: #ffebe9; border-radius: 6px; padding: 12px; }
 .foot { display: flex; gap: 12px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12.5px; margin-top: 24px; }
+
+/* Dark theme: override variables only — do NOT redeclare body flex layout */
+body { transition: background 0.3s ease-in-out, color 0.3s ease-in-out; }
+
+body.dark {
+  --ink: #e6edf3;
+  --muted: #8b949e;
+  --line: #30363d;
+  --bg: #0d0d0d;
+  --subtle: #262633;
+  --accent: #539bf5;
+  background: #0d0d0d;
+}
+
+/* Toggle container — fits inside header.nav */
+.toggle-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  user-select: none;
+}
+.toggle-wrapper:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Sun icon */
+.sun-icon {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sun-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: #666666;
+}
+
+body.dark .sun-icon {
+  opacity: 0;
+  transform: rotate(-90deg);
+}
+
+/* Moon icon */
+.moon-icon {
+  width: 18px;
+  height: 18px;
+  opacity: 0;
+  transform: rotate(30deg);
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1) 0.15s,
+              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.moon-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: #999999;
+}
+
+body.dark .moon-icon {
+  opacity: 1;
+  transform: rotate(0deg);
+}
+
+/* Toggle track */
+.toggle-track {
+  width: 44px;
+  height: 24px;
+  border-radius: 12px;
+  background: #d9d9d9;
+  position: relative;
+  transition: background 0.5s ease-in-out;
+}
+
+body.dark .toggle-track {
+  background: #30363d;
+}
+
+/* Toggle knob */
+.toggle-knob {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #ffffff;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.5s ease-in-out;
+}
+
+body.dark .toggle-knob {
+  transform: translateX(20px);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
+}

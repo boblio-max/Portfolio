@@ -1,5 +1,6 @@
 // Entry point + hash router. Views: All / Hardware / Repositories /
 // Activity / Project detail. Every number comes from /api/* (real GitHub data).
+
 import { api } from './js/api.js';
 import { renderGraph } from './js/activity.js';
 import { renderRepositories } from './js/repositories.js';
@@ -88,6 +89,22 @@ function route() {
   if (h.startsWith('#/project/')) return renderProjectDetail(view, h.split('/')[2].split('?')[0]);
   return overview('all');
 }
+
+function toggleDarkMode() {
+  const isDark = document.body.classList.toggle('dark');
+  document.querySelector('.toggle-wrapper')?.setAttribute('aria-checked', String(isDark));
+}
+window.toggleDarkMode = toggleDarkMode;
+
+// Click + keyboard support (toggle now lives inside header.nav)
+document.querySelector('.toggle-wrapper')?.addEventListener('click', toggleDarkMode);
+document.querySelector('.toggle-wrapper')?.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter' || e.key === ' ') {
+    e.preventDefault();
+    toggleDarkMode();
+  }
+});
+
 window.addEventListener('hashchange', route);
 markSync();
 route();

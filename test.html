@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dark Mode Toggle</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      background: #ffffff;
+      transition: background 0.5s ease-in-out;
+    }
+
+    body.dark {
+      background: #1a1a2e;
+    }
+
+    /* Toggle container */
+    .toggle-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    /* Sun icon */
+    .sun-icon {
+      width: 20px;
+      height: 20px;
+      position: relative;
+      transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .sun-icon svg {
+      width: 100%;
+      height: 100%;
+      fill: #666666;
+    }
+
+    .dark .sun-icon {
+      opacity: 0;
+      transform: rotate(-90deg);
+    }
+
+    /* Moon icon */
+    .moon-icon {
+      width: 18px;
+      height: 18px;
+      opacity: 0;
+      transform: rotate(30deg);
+      transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1) 0.15s,
+                  transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .moon-icon svg {
+      width: 100%;
+      height: 100%;
+      fill: #999999;
+    }
+
+    .dark .moon-icon {
+      opacity: 1;
+      transform: rotate(0deg);
+    }
+
+    /* Toggle track */
+    .toggle-track {
+      width: 44px;
+      height: 24px;
+      border-radius: 12px;
+      background: #d9d9d9;
+      position: relative;
+      transition: background 0.5s ease-in-out;
+    }
+
+    .dark .toggle-track {
+      background: #262633;
+    }
+
+    /* Toggle knob */
+    .toggle-knob {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #ffffff;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+                  box-shadow 0.5s ease-in-out;
+    }
+
+    .dark .toggle-knob {
+      transform: translateX(20px);
+      box-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
+    }
+  </style>
+</head>
+<body>
+  <div class="toggle-wrapper" onclick="toggleDarkMode()" role="switch" aria-checked="false" aria-label="Toggle dark mode" tabindex="0">
+    <!-- Sun icon -->
+    <div class="sun-icon">
+      <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="10" cy="10" r="6" />
+        <rect x="9" y="0" width="2" height="3" rx="1" />
+        <rect x="9" y="17" width="2" height="3" rx="1" />
+        <rect x="0" y="9" width="3" height="2" rx="1" />
+        <rect x="17" y="9" width="3" height="2" rx="1" />
+        <rect x="15.5" y="1.5" width="2" height="2" rx="1" />
+        <rect x="2.5" y="1.5" width="2" height="2" rx="1" />
+        <rect x="15.5" y="16.5" width="2" height="2" rx="1" />
+        <rect x="2.5" y="16.5" width="2" height="2" rx="1" />
+      </svg>
+    </div>
+
+    <!-- Toggle track -->
+    <div class="toggle-track">
+      <div class="toggle-knob"></div>
+    </div>
+
+    <!-- Moon icon -->
+    <div class="moon-icon">
+      <svg viewBox="0 0 18 18" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 1a8 8 0 1 0 7.5 5.2A6 6 0 0 1 9 1Z" />
+      </svg>
+    </div>
+  </div>
+
+  <script>
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark');
+
+      const toggle = document.querySelector('.toggle-wrapper');
+      const isDark = document.body.classList.contains('dark');
+      toggle.setAttribute('aria-checked', isDark);
+    }
+
+    // Keyboard support
+    document.querySelector('.toggle-wrapper').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleDarkMode();
+      }
+    });
+  </script>
+</body>
+</html>
