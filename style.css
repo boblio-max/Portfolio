@@ -1,0 +1,78 @@
+/* Minimal GitHub-inspired portfolio. Light, dense, one accent color. */
+:root {
+  --ink: #1f2328;
+  --muted: #59636e;
+  --line: #d0d7de;
+  --bg: #ffffff;
+  --subtle: #f6f8fa;
+  --accent: #0969da;
+  --g0: #ebedf0; --g1: #9be9a8; --g2: #40c463; --g3: #30a14e; --g4: #216e39;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; color: var(--ink); background: var(--bg);
+  font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+}
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12.5px; }
+
+/* Nav */
+.nav {
+  display: flex; align-items: center; gap: 16px;
+  padding: 10px 16px; border-bottom: 1px solid var(--line);
+  position: sticky; top: 0; background: var(--bg); z-index: 20;
+}
+.brand { color: var(--ink); font-weight: 650; font-size: 15px; }
+.nav nav { display: flex; gap: 12px; }
+.nav nav a { color: var(--ink); padding: 4px 2px; }
+.nav nav a.on { font-weight: 650; border-bottom: 2px solid #fd8c73; }
+.spacer { flex: 1; }
+.sync { color: var(--muted); font-size: 12px; }
+.gh { border: 1px solid var(--line); border-radius: 6px; padding: 3px 10px; background: var(--subtle); color: var(--ink); }
+
+/* Layout */
+.wrap { max-width: 980px; margin: 0 auto; padding: 20px 16px; }
+h1 { font-size: 22px; margin: 6px 0; font-weight: 650; }
+.sub { color: var(--muted); margin: 0 0 12px; }
+h2 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin: 22px 0 8px; }
+.stats { display: flex; gap: 16px; flex-wrap: wrap; color: var(--muted); }
+.stats b { color: var(--ink); }
+
+/* Cards / lists */
+.card { border: 1px solid var(--line); border-radius: 6px; padding: 12px; margin-bottom: 12px; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 700px) { .grid { grid-template-columns: 1fr; } }
+.proj h3, .repo-row h3 { margin: 0 0 4px; font-size: 14.5px; }
+.proj p, .repo-row p { margin: 0 0 8px; color: var(--muted); font-size: 13.5px; }
+.tag { display: inline-block; border: 1px solid var(--line); background: var(--subtle);
+  border-radius: 2em; padding: 0 8px; font-size: 12px; color: var(--muted); margin-right: 6px; }
+.repo-row { border: 1px solid var(--line); border-radius: 6px; padding: 10px 12px; margin-bottom: 8px; }
+.search { width: 100%; padding: 7px 10px; border: 1px solid var(--line); border-radius: 6px; font: inherit; margin: 4px 0 12px; }
+
+/* Graph */
+.graph-scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 6px; padding: 12px; }
+.graph { display: grid; grid-auto-flow: column; grid-template-rows: repeat(7, 11px); gap: 3px; width: max-content; }
+.day { width: 11px; height: 11px; border-radius: 2px; background: var(--g0); border: 0; padding: 0; cursor: pointer; }
+.day[data-l="1"] { background: var(--g1); } .day[data-l="2"] { background: var(--g2); }
+.day[data-l="3"] { background: var(--g3); } .day[data-l="4"] { background: var(--g4); }
+.legend { display: flex; gap: 3px; align-items: center; justify-content: flex-end; color: var(--muted); font-size: 12px; margin-top: 8px; }
+.legend .day { cursor: default; }
+
+/* Tooltip + popover */
+.tip { position: fixed; z-index: 50; background: #24292f; color: #fff; font-size: 12px;
+  padding: 5px 9px; border-radius: 6px; pointer-events: none; }
+.pop { position: fixed; z-index: 50; background: #fff; border: 1px solid var(--line); border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12); max-width: 340px; max-height: 60vh; overflow: auto; padding: 12px; }
+.pop h4 { margin: 0 0 4px; font-size: 13.5px; }
+.pop ul { margin: 6px 0; padding-left: 16px; font-size: 13px; }
+.pop .total { color: var(--muted); font-size: 12.5px; border-top: 1px solid var(--line); padding-top: 6px; }
+
+/* Activity feed */
+.day-group { border-top: 1px solid var(--line); padding: 10px 0; }
+.day-group h4 { margin: 0 0 6px; font-size: 13.5px; }
+.commit { padding: 4px 0; font-size: 13.5px; }
+.commit .meta { color: var(--muted); font-size: 12px; }
+
+.err { border: 1px solid #ff8182; background: #ffebe9; border-radius: 6px; padding: 12px; }
+.foot { display: flex; gap: 12px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12.5px; margin-top: 24px; }
