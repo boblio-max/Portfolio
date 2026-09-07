@@ -80,6 +80,7 @@ function projectsView(repos, commitsByRepo) {
     const primary = byKey.get(keys[0]);
     return {
       id: p.id, name: p.name, status: p.status,
+      showOnHome: p.showOnHome !== false,
       description: p.description || primary?.description || '',
       repos: keys.map((k) => byKey.get(k)?.name || k),
       repoKeys: keys,

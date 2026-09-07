@@ -90,8 +90,8 @@ export const FEATURED = [
   { id: 'cori', name: 'CORI 2.0', status: 'Active', description: 'Competition robotics platform.', repos: ['cori_2.0'] },
   { id: 'orbs', name: 'ORBS', status: 'In development', description: 'Spherical omnidirectional robot.', repos: ['orbs-ball-robot'] },
   { id: 'ospr', name: 'OSPR', status: 'Research', description: '', repos: ['ospr'] },
-  { id: 'qyphos', name: 'Qyphos', status: 'Research', description: '', repos: ['qyphos-quantum-simulator'] },
-  { id: 'vogyr', name: 'Vogyr', status: 'Experimental', description: '', repos: ['vogyr-carpooling'] },
+  { id: 'origindevtools', name: 'Origin DevTools', status: 'Active', description: 'Installer and dev tools for the Origin language.', repos: ['origindevtools'] },
+  { id: 'origin-codegen-model', name: 'Origin Codegen Model', status: 'Research', description: '', repos: ['origin-codegen-model'] },
   { id: 'llm-cad-agent', name: 'LLM CAD Agent', status: 'Experimental', description: '', repos: ['llm-cad-agent'] },
-  { id: 'swarm', name: 'Swarm Robot Orchestrator', status: 'Experimental', description: '', repos: ['swarm-robot-orchestrator'] },
+  { id: 'swarm', name: 'Swarm Robot Orchestrator', status: 'Experimental', description: '', repos: ['swarm-robot-orchestrator'], showOnHome: false },
 ];

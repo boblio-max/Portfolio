@@ -36,7 +36,8 @@ async function overview(scope) {
     const [s, days, projects, recent] = await Promise.all([
       api.summary(isHw ? 'hardware' : ''), api.activity(q), api.projects(), api.commits(`${q ? q + '&' : '?'}limit=15`),
     ]);
-    const list = isHw ? projects.filter((p) => ['cori', 'orbs', 'swarm', 'llm-cad-agent'].includes(p.id)) : projects;
+    const home = projects.filter((p) => p.showOnHome);
+    const list = isHw ? home.filter((p) => ['cori', 'orbs', 'llm-cad-agent'].includes(p.id)) : home;
     view.innerHTML = `
       ${head('Nikhil Mahankali', isHw
         ? 'Hardware & robotics — CAD, sensors, control, simulation.'
