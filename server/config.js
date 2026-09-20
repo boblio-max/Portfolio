@@ -87,8 +87,8 @@ export const HARDWARE = new Set([
 export const FEATURED = [
   { id: 'origin', name: 'Origin', status: 'In development', description: '', repos: ['origin'] },
   { id: 'originos', name: 'Origin OS', status: 'In development', description: '', repos: ['originos'] },
-  { id: 'cori', name: 'CORI 2.0', status: 'Active', description: 'Competition robotics platform.', repos: ['cori_2.0'] },
-  { id: 'orbs', name: 'ORBS', status: 'In development', description: 'Spherical omnidirectional robot.', repos: ['orbs-ball-robot'] },
+  { id: 'cori', name: 'CORI 2.0', status: 'Active', description: 'CORI 2.0 — Computer Operated Robot Interface 2.0. Currently iterating on a custom GT2 timing-belt drive mechanism. Designed, machined/printed, and bench-tested a revised pulley set with deeper tread profiles to increase belt-tooth engagement and eliminate skipping under high-torque loads. The deeper-tread test improved seating but still showed inconsistent power transfer, so the next iteration pushes tread depth even further while refining pitch geometry and tensioning for reliable transmission.', repos: ['cori_2.0'] },
+  { id: 'orbs', name: 'ORBS', status: 'Assembled — Power & Programming Next', description: 'Omnidirectional Rolling Ball System — spherical robot with a three-axis internal omni-wheel drive. Full mechanical assembly is complete: chassis integration, drive-stack alignment, and IMU/sensor mounting, all tolerance-checked and prepped for electronics. Power distribution has not been wired yet — that is next, followed by firmware: motor-driver bring-up, closed-loop PID stabilization, vector drive mixing, and wireless teleop.', repos: ['orbs-ball-robot'] },
   { id: 'ospr', name: 'OSPR', status: 'Research', description: '', repos: ['ospr'] },
   { id: 'origindevtools', name: 'Origin DevTools', status: 'Active', description: 'Installer and dev tools for the Origin language.', repos: ['origindevtools'] },
   { id: 'origin-codegen-model', name: 'Origin Codegen Model', status: 'Research', description: '', repos: ['origin-codegen-model'] },
