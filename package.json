@@ -1,0 +1,6 @@
+{
+  "name": "portfolio",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Nikhil Mahankali's personal portfolio — static frontend + Vercel serverless API backed by the GitHub API."
+}
